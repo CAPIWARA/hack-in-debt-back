@@ -2,6 +2,7 @@ package br.com.hackindebt.hackindebt.controller;
 
 import br.com.hackindebt.hackindebt.model.Instituicao;
 import br.com.hackindebt.hackindebt.service.InstituicaoService;
+import br.com.hackindebt.hackindebt.utils.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class ControllerInstituicao {
         LinkedHashMap response = new LinkedHashMap();
         try {
             instituicaoService.saveInstituicao(instituicao);
-            response.put("message", "Cadastro efetuado com sucesso");
+            response.put("message", Constants.CADASTRO_EFETUADO);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             System.out.println(e.getMessage());

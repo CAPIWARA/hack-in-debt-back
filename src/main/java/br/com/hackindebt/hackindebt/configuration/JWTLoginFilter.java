@@ -1,6 +1,6 @@
 package br.com.hackindebt.hackindebt.configuration;
 
-import br.com.hackindebt.hackindebt.model.Usuario;
+import br.com.hackindebt.hackindebt.model.Login;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -27,8 +27,9 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
     public Authentication attemptAuthentication(HttpServletRequest req, HttpServletResponse res)
             throws AuthenticationException, IOException, ServletException {
         try {
-            Usuario creden = new ObjectMapper()
-                    .readValue(req.getInputStream(), Usuario.class);
+            Login creden = new ObjectMapper().readValue(req.getInputStream(), Login.class);
+            System.out.println("valor aqui: " + creden);
+
             return getAuthenticationManager().authenticate(
                     new UsernamePasswordAuthenticationToken(
                             creden.getEmail(),
@@ -37,6 +38,7 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
                     )
             );
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("Login não é valido:" + e.getMessage());
             return null;
         }

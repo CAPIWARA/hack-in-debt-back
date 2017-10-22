@@ -1,6 +1,6 @@
 package br.com.hackindebt.hackindebt.service;
 
-import br.com.hackindebt.hackindebt.model.Usuario;
+import br.com.hackindebt.hackindebt.model.Login;
 import br.com.hackindebt.hackindebt.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,15 +21,15 @@ public class UsuarioDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
-            Usuario usuario = usuarioRepository.findByEmail(username);
-            if (usuario == null) {
-                System.out.println("usuario not found with the provided usuario");
+            Login login = usuarioRepository.findByEmail(username);
+            if (login == null) {
+                System.out.println("login not found with the provided login");
                 return null;
             }
-            System.out.println("usuario from usuario " + usuario.toString());
-            return new org.springframework.security.core.userdetails.User(usuario.getEmail(), usuario.getPassword(), new ArrayList<>());
+            System.out.println("login from login " + login.toString());
+            return new org.springframework.security.core.userdetails.User(login.getEmail(), login.getPassword(), new ArrayList<>());
         } catch (Exception e) {
-            throw new UsernameNotFoundException("Usuario not found");
+            throw new UsernameNotFoundException("Login not found");
         }
     }
 }

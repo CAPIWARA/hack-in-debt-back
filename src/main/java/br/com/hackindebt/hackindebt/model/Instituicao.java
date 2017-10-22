@@ -19,7 +19,7 @@ public class Instituicao {
     @JoinColumn
     @ManyToOne
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    private Usuario usuario;
+    private Login login;
 
     public Long getId() {
         return id;
@@ -77,12 +77,12 @@ public class Instituicao {
         this.endereco = endereco;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Login getLogin() {
+        return login;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setLogin(Login login) {
+        this.login = login;
     }
 
     @Override
@@ -95,7 +95,7 @@ public class Instituicao {
                 ", foto='" + foto + '\'' +
                 ", site='" + site + '\'' +
                 ", endereco='" + endereco + '\'' +
-                ", usuario=" + usuario +
+                ", login=" + login +
                 '}';
     }
 }

@@ -4,7 +4,7 @@ package br.com.hackindebt.hackindebt.model;
 import javax.persistence.*;
 
 @Entity
-public class Usuario {
+public class Login {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -56,7 +56,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
+        return "Login{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +

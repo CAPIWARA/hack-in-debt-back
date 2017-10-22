@@ -14,15 +14,15 @@ public class InstituicaoService {
 
     public void saveInstituicao(Instituicao instituicao) throws Exception {
         Utils.validate(instituicao);
-        Utils.validate(instituicao.getUsuario());
-        Utils.validate(instituicao.getUsuario().getEmail());
-        Utils.validate(instituicao.getUsuario().getPassword());
-        instituicao.getUsuario().setId(0L);
+        Utils.validate(instituicao.getLogin());
+        Utils.validate(instituicao.getLogin().getEmail());
+        Utils.validate(instituicao.getLogin().getPassword());
+        instituicao.getLogin().setId(0L);
         Utils.validate(instituicao.getCnpj());
         Utils.validate(instituicao.getNome());
         Utils.validate(instituicao.getTelefone());
         Utils.validate(instituicao.getEndereco());
-        instituicao.getUsuario().setPerfil(Perfil.INSTITUICAO);
+        instituicao.getLogin().setPerfil(Perfil.INSTITUICAO);
         instituicao.setId(0L);
 
         instituicaoRepository.save(instituicao);
