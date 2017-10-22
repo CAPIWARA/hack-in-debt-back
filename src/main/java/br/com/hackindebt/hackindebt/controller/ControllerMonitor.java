@@ -19,7 +19,7 @@ public class ControllerMonitor {
     public String monitor() {
         long localDate = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
         //return String.valueOf(localDate);
-        return usuarioService.findEmpresaByEmail("capiwara@gmail.com").toString();
+        return usuarioService.findByEmail("capiwara@gmail.com").toString();
     }
 
     @RequestMapping("/users")

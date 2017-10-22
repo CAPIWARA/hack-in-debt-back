@@ -24,6 +24,7 @@ public class InstituicaoService {
         Utils.validate(instituicao.getEndereco());
         instituicao.getLogin().setPerfil(Perfil.INSTITUICAO);
         instituicao.setId(0L);
+        instituicao.getLogin().setAtivo(true);
 
         instituicaoRepository.save(instituicao);
     }

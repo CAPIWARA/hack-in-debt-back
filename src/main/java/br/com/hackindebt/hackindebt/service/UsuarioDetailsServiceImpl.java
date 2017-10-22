@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UsuarioDetailsServiceImpl implements UserDetailsService {
 
@@ -21,7 +22,9 @@ public class UsuarioDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
-            Login login = usuarioRepository.findByEmail(username);
+            Login login = null;
+            List<Login> list = usuarioRepository.findByEmail(username);
+            if (list.size() > 0) login = list.get(0);
             if (login == null) {
                 System.out.println("login not found with the provided login");
                 return null;

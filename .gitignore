@@ -22,3 +22,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+!/src/test/java/br/com/hackindebt/hackindebt/HackindebtApplicationTests.java

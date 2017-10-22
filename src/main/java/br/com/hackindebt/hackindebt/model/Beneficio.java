@@ -1,8 +1,6 @@
 package br.com.hackindebt.hackindebt.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Beneficio {
@@ -13,6 +11,9 @@ public class Beneficio {
     private Long pontosNecessarios;
     private String descricao;
     private String foto;
+    @Enumerated(EnumType.STRING)
+    private TipoBeneficio tipoBeneficio;
+    private boolean ativo;
 
 
     public Long getId() {
@@ -53,5 +54,21 @@ public class Beneficio {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    public TipoBeneficio getTipoBeneficio() {
+        return tipoBeneficio;
+    }
+
+    public void setTipoBeneficio(TipoBeneficio tipoBeneficio) {
+        this.tipoBeneficio = tipoBeneficio;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 }

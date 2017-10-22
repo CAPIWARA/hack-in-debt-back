@@ -14,12 +14,14 @@ public class Estudante {
     private StatusPagamento statusPagamento;
     private Long media;
     private String cpf;
-    private String pesquisaCientifica;
+    private boolean pesquisaCientifica;
     @JoinColumn
     @ManyToOne
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Login login;
     private Long nivel;
+    private Long ouro;
+    private Long gema;
 
     public Long getId() {
         return id;
@@ -61,11 +63,11 @@ public class Estudante {
         this.cpf = cpf;
     }
 
-    public String getPesquisaCientifica() {
+    public boolean isPesquisaCientifica() {
         return pesquisaCientifica;
     }
 
-    public void setPesquisaCientifica(String pesquisaCientifica) {
+    public void setPesquisaCientifica(boolean pesquisaCientifica) {
         this.pesquisaCientifica = pesquisaCientifica;
     }
 
@@ -83,5 +85,37 @@ public class Estudante {
 
     public void setNivel(Long nivel) {
         this.nivel = nivel;
+    }
+
+    public Long getOuro() {
+        return ouro;
+    }
+
+    public void setOuro(Long ouro) {
+        this.ouro = ouro;
+    }
+
+    public Long getGema() {
+        return gema;
+    }
+
+    public void setGema(Long gema) {
+        this.gema = gema;
+    }
+
+    @Override
+    public String toString() {
+        return "Estudante{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", statusPagamento=" + statusPagamento +
+                ", media=" + media +
+                ", cpf='" + cpf + '\'' +
+                ", pesquisaCientifica=" + pesquisaCientifica +
+                ", login=" + login +
+                ", nivel=" + nivel +
+                ", ouro=" + ouro +
+                ", gema=" + gema +
+                '}';
     }
 }

@@ -26,6 +26,7 @@ public class TokenAuthenticationService {
                 .signWith(SignatureAlgorithm.HS512, SECRET)
                 .compact();
         res.addHeader(HEADER_STRING, TOKEN_PREFIX + " " + JWT);
+        res.setHeader(HEADER_STRING, TOKEN_PREFIX + " " + JWT);
     }
 
     static Authentication getAuthentication(HttpServletRequest request) {
